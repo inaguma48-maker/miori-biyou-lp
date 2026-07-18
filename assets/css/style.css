@@ -1,0 +1,415 @@
+/* ==========================================================================
+   みおり美容 LP - style.css
+   配色: 水色中心のパステルカラー / フォント: メイリオ
+   ========================================================================== */
+
+:root {
+  --color-main: #bfe8f5;      /* 水色パステル（メイン） */
+  --color-main-dark: #7fc6de; /* 水色（アクセント・ボタン等） */
+  --color-sub: #ffe3ee;       /* ピンク系パステル（サブ） */
+  --color-bg: #f5fcfe;        /* ページ全体の背景 */
+  --color-hero-1: #fff6c9;    /* ヒーロー用パステルイエロー */
+  --color-hero-2: #ffe9a3;    /* ヒーロー用パステルイエロー（アクセント） */
+  --color-white: #ffffff;
+  --color-text: #33454b;
+  --color-text-light: #6d8a92;
+  --radius: 16px;
+  --max-width: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Meiryo", "メイリオ", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: 48px;
+  letter-spacing: 0.05em;
+}
+
+/* 実写真を敷き詰めるコンテナ（角丸・トリミング） */
+.hero__visual,
+.menu__image,
+.gallery__item,
+.staff__image {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero__visual img,
+.menu__image img,
+.gallery__item img,
+.staff__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 画像プレースホルダー（地図など、写真未確定の箇所の仮表示） */
+.img-placeholder {
+  background: linear-gradient(135deg, var(--color-main) 0%, var(--color-sub) 100%);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 14px;
+  text-align: center;
+  min-height: 200px;
+}
+
+.img-placeholder::before {
+  content: attr(data-label);
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--color-main-dark);
+  color: var(--color-white);
+  box-shadow: 0 8px 20px rgba(127, 198, 222, 0.5);
+}
+
+.btn--secondary {
+  background: var(--color-white);
+  color: var(--color-main-dark);
+  border: 2px solid var(--color-main-dark);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ヘッダー */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-main);
+}
+
+.header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header__logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--color-main-dark);
+}
+
+.header__nav {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.header__tel {
+  font-weight: bold;
+  color: var(--color-main-dark);
+  white-space: nowrap;
+}
+
+/* ヒーロー（このセクションのみパステルイエロー） */
+.hero {
+  background: linear-gradient(135deg, var(--color-hero-1) 0%, var(--color-hero-2) 100%);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 64px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__catch-sub {
+  color: #b8892c;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.hero__catch {
+  font-size: 40px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.hero__lead {
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+
+.hero__visual {
+  height: 360px;
+  background: linear-gradient(135deg, var(--color-hero-2) 0%, var(--color-main) 100%);
+}
+
+/* 選ばれる理由 */
+.reason {
+  background: var(--color-white);
+}
+
+.reason__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.reason__item {
+  text-align: center;
+  padding: 32px 20px;
+  background: var(--color-bg);
+  border-radius: var(--radius);
+}
+
+.reason__icon {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--color-main-dark);
+  margin-bottom: 12px;
+}
+
+.reason__item h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.reason__item p {
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+/* メニュー紹介 */
+.menu__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.menu__card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(127, 198, 222, 0.15);
+}
+
+.menu__image {
+  height: 180px;
+  border-radius: 0;
+}
+
+.menu__card h3,
+.menu__card p {
+  padding: 0 20px;
+}
+
+.menu__card h3 {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.menu__card p {
+  margin: 8px 0 20px;
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+/* ギャラリー */
+.gallery__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.gallery__item {
+  height: 200px;
+}
+
+/* スタッフ紹介 */
+.staff {
+  background: var(--color-white);
+}
+
+.staff__lead {
+  text-align: center;
+  color: var(--color-text-light);
+  margin-top: -24px;
+  margin-bottom: 40px;
+}
+
+.staff__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.staff__card {
+  text-align: center;
+}
+
+.staff__image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+}
+
+.staff__card h3 {
+  font-size: 16px;
+}
+
+.staff__card p {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+/* 店舗情報 */
+.access__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.access__table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px 24px;
+}
+
+.access__table dt {
+  color: var(--color-main-dark);
+  font-weight: bold;
+}
+
+.access__map {
+  min-height: 260px;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, var(--color-main) 0%, var(--color-sub) 100%);
+  text-align: center;
+}
+
+.cta .section-title {
+  color: var(--color-text);
+}
+
+.cta__lead {
+  color: var(--color-text);
+  margin-top: -24px;
+  margin-bottom: 40px;
+}
+
+.cta__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* フッター */
+.footer {
+  background: var(--color-text);
+  color: var(--color-white);
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 13px;
+}
+
+.footer__logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.footer__copyright {
+  margin-top: 16px;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   レスポンシブ（スマートフォン優先で確認）
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+  }
+
+  .hero__catch {
+    font-size: 30px;
+  }
+
+  .reason__list,
+  .menu__list,
+  .staff__list {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .access__content {
+    grid-template-columns: 1fr;
+  }
+
+  .section-inner {
+    padding: 56px 20px;
+  }
+}
