@@ -188,6 +188,42 @@
   </div>
 </footer>
 
+<!-- チャットサポートウィジェット -->
+<div id="chat-widget" class="chat-widget">
+  <!-- チャット起動ボタン -->
+  <button id="chat-toggle-btn" class="chat-widget__toggle" aria-label="チャット相談を開く">
+    <span class="chat-widget__icon">💬</span>
+    <span class="chat-widget__toggle-text">ご質問・ご相談</span>
+  </button>
+
+  <!-- チャットウィンドウ -->
+  <div id="chat-window" class="chat-widget__window" aria-hidden="true">
+    <div class="chat-widget__header">
+      <div class="chat-widget__header-info">
+        <span class="chat-widget__avatar">🌸</span>
+        <div>
+          <h3 class="chat-widget__title">みおり美容 オンライン相談</h3>
+          <p class="chat-widget__status">● オンライン (自動応答)</p>
+        </div>
+      </div>
+      <button id="chat-close-btn" class="chat-widget__close" aria-label="チャットを閉じる">✕</button>
+    </div>
+
+    <div id="chat-messages" class="chat-widget__messages">
+      <!-- メッセージはJSで動的挿入 -->
+    </div>
+
+    <div id="chat-quick-replies" class="chat-widget__quick-replies">
+      <!-- クイック返信ボタンはJSで動的挿入 -->
+    </div>
+
+    <form id="chat-form" class="chat-widget__input-form">
+      <input type="text" id="chat-input" class="chat-widget__input" placeholder="質問を入力してください..." autocomplete="off">
+      <button type="submit" class="chat-widget__send-btn" aria-label="送信">送信</button>
+    </form>
+  </div>
+</div>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
